@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonnee{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+
+        <tr>
+            <th>Username</th>
+            <td>{{ abonnee.username }}</td>
+        </tr>
+        <tr>
+            <th>Role</th>
+            <td>
+                {% for role in abonnee.roles %}
+                    {{ role }}
+                {% endfor %}
+            </td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-2">
+                <a href="{{ path('abonnee_index') }}"><span class="btn btn-primary"><i
+                                class="fa fa-backward"></i>&nbsp;&nbsp;Retour</span></a>
+            </div>    {{ include('abonnee/_delete_form.html.twig') }}</div>
+
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

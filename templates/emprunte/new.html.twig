@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Emprunte{% endblock %}
+
+{% block body %}
+
+    {{ include('emprunte/_form.html.twig') }}
+
+    <a href="{{ path('emprunte_index') }}"><span class="btn btn-primary"><i class="fa fa-backward"></i>&nbsp;</span></a>
+{% endblock %}

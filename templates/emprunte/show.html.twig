@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Emprunte{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ emprunte.id }}</td>
+        </tr>
+        <tr>
+            <th>Livres</th>
+            <td> {% for livre in emprunte.livres %}
+
+                    <span class="badge badge-primary">{{ livre.titre }}</span>
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Date emprunte</th>
+            <td>{{ emprunte.dateemprunte ? emprunte.dateemprunte|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Date retour</th>
+            <td>{{ emprunte.dateretour ? emprunte.dateretour|date('Y-m-d') : '' }}</td>
+        </tr>
+        <tr>
+            <th>Etat</th>
+            <td>{{ emprunte.etat }}</td>
+        </tr>
+        <tr>
+            <th>Nom Emprunteur</th>
+            <td>{{ emprunte.user.username }}</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-2"><a href="{{ path('emprunte_index') }}"><span class="btn btn-primary"><i
+                                class="fa fa-backward"></i>&nbsp;&nbsp;Retour</span></a></div>
+            {% if is_granted('ROLE_USER') %}
+                {{ include('emprunte/_delete_form.html.twig') }}
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}

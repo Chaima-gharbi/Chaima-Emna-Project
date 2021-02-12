@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block title %} Editer Auteur {% endblock %}
+{% block body %}
+    {{ form_start(frm) }}
+    {{ form_widget (frm) }}
+    {{ form_end(frm) }}
+<br>
+    <div class="container">
+        <div class="row">
+                <a href="{{ path('index_auteur') }}"><span class="btn btn-primary"><i class="fa fa-backward"></i>&nbsp;&nbsp;Retour</span></a>
+
+    </div>
+
+{% endblock %}

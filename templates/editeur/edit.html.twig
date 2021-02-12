@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Editeur{% endblock %}
+
+{% block body %}
+    {{ include('editeur/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <br>
+
+    <div class="container">
+        <div class="row">
+
+            <a href="{{ path('editeur_index') }}"><span class="btn btn-primary"><i class="fa fa-backward"></i>&nbsp;&nbsp;Retour</span></a>
+        </div>
+
+    </div>
+
+
+{% endblock %}

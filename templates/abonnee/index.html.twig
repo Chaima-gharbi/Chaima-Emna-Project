@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Abonnee index{% endblock %}
+
+{% block body %}
+
+
+    <br>
+    {% block javascripts %}
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+        <script>
+
+            $(document).ready(function () {
+                $('#dataTables-example').DataTable();
+            });
+        </script>
+
+    {% endblock %}
+
+
+    <table class="table table-striped table-bordered table-hover" id="dataTables-example" style="width:100%">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for c,abonnee in abonnees %}
+            <tr>
+                <td>{{ c+1 }}</td>
+                <td>{{ abonnee.username }}</td>
+                <td>
+                    {% for role in abonnee.roles %}
+                        {{ role }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{{ path('abonnee_show', {'id': abonnee.id}) }}"><span class="btn btn-default"><i
+                                    class="fa fa-eye"></i></span></a>
+                    <a href="{{ path('abonnee_edit', {'id': abonnee.id}) }}"><span class="btn btn-success"><i
+                                    class="fa fa-pencil"></i></span></a>
+                    <a href="{{ path('abonnee_delete', {'id': abonnee.id}) }}"><span class="btn btn-danger"><i
+                                    class="fa fa-trash-o"></i></span></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas d'enregistrement trouve</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

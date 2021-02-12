@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+        <meta charset="UTF-8">
+        <title>{% block title %}Gestion de bibliotheque{% endblock %}</title>
+
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta content="" name="description" />
+            <meta content="webthemez" name="author" />
+            <!-- Bootstrap Styles-->
+            <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" />
+            <!-- FontAwesome Styles-->
+            <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet" />
+            <!-- Custom Styles-->
+        <link href="{{ asset('css/custom-styles.css')}}" rel="stylesheet" />
+        <link href="{{ asset('https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+            <!-- Google Fonts-->
+
+
+
+
+        {% block stylesheets %}{% endblock %}
+
+    </head>
+ <body>
+ <div id="wrapper">
+    {% include('top.html.twig')%}
+     <!--/. NAV TOP  -->
+     {% include('menu.html.twig') %}
+
+     <!-- /. NAV SIDE  -->
+     <div id="page-wrapper">
+         <div class="header">
+             <h1 class="page-header">
+                 {% block titre %}
+                 {{ titre }}<small>{{ soustitre }}</small>
+                 {% endblock %}
+             </h1>
+             <ol class="breadcrumb">
+                 <li><a href="{{ path('acceuil') }}">Acceuil</a></li>
+                 <li><a href="#">{{ titre }}</a></li>
+                 <li class="active">{{ soustitre }}</li>
+             </ol>
+         </div>
+         <div id="page-inner">
+
+             <div class="row">
+                 {% block mainbody %}
+                 <div class="col-md-12">
+                     <!-- Advanced Tables -->
+                     {% endblock %}
+                     <div class="panel panel-default">
+
+                         <div class="panel-body">
+                             {% block body %}{% endblock %}
+                         </div></div></div></div></div>
+                             {% include('piedpage.html.twig') %}
+         <!-- /. PAGE INNER  -->
+     </div>
+     <!-- /. PAGE WRAPPER  -->
+ </div>
+ <!-- /. WRAPPER  -->
+
+ <!-- JS Scripts-->
+ <!-- jQuery Js -->
+
+        <script src="{{ asset('js/jquery-1.10.2.js')}}"></script>
+        <!-- Bootstrap Js -->
+        <script src="{{ asset('js/bootstrap.min.js')}}"></script>
+        <!-- Metis Menu Js -->
+        <script src="{{ asset('js/jquery.metisMenu.js')}}"></script>
+        <!-- Custom Js -->
+        <script src="{{ asset('js/custom-scripts.js')}}"></script>
+
+        {% block javascripts %}{% endblock %}
+    </body>
+<footer></footer>
+</html>

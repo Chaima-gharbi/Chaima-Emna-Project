@@ -1,0 +1,36 @@
+<nav class="navbar-default navbar-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="main-menu">
+
+            <li>
+                <a href="{{ path('index_auteur')}}"><i class="fa fa-user"></i> Auteurs</a>
+            </li>
+            <li>
+                <a href="{{ path('editeur_index')}}"><i class="fa fa-pencil"></i> Editeurs</a>
+            </li>
+
+            <li>
+                <a href="{{ path('categorie_index')}}"><i class="fa fa-folder"></i> Categories</a>
+            </li>
+            <li>
+                <a href="{{ path('livre_index')}}"><i class="fa fa-book"></i> Livres</a>
+            </li>
+            {% if (is_granted('ROLE_ADMIN') or is_granted('ROLE_USER'))%}
+
+                <li>
+                    <a href="{{ path('emprunte_index')}}"><i class="fa fa-save"></i>Empruntes</a>
+                </li>
+            {% endif %}
+
+            {% if (is_granted('ROLE_ADMIN') )%}
+
+                <li>
+                    <a href="{{ path('abonnee_index')}}"><i class="fa fa-user"></i>Abonnes</a>
+                </li>
+            {% endif %}
+
+        </ul>
+
+    </div>
+
+</nav>

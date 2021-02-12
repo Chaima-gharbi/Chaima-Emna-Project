@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Abonnee{% endblock %}
+
+{% block body %}
+
+    {{ include('abonnee/_form.html.twig') }}
+
+    <a href="{{ path('abonnee_index') }}"><span class="btn btn-primary"><i class="fa fa-backward"></i>&nbsp;</span></a>
+{% endblock %}

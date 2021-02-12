@@ -1,0 +1,9 @@
+
+    <form method="post" action="{{ path('abonnee_delete', {'id': abonnee.id}) }}"
+          onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ abonnee.id) }}">
+        <button class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp; Supprimer</button>
+    </form>
+
+

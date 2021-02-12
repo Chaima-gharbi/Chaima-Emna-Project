@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editeur{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Nom Editeur</th>
+                <td>{{ editeur.nomEditeur }}</td>
+            </tr>
+            <tr>
+                <th>Pays</th>
+                <td>{{ editeur.pays }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ editeur.telephone }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-2">
+                <a href="{{ path('editeur_index') }}"><span class="btn btn-primary"><i class="fa fa-backward"></i>&nbsp;&nbsp;Retour</span></a></div>
+            {% if (is_granted('ROLE_ADMIN') or is_granted('ROLE_USER')) %}
+                {{ include('editeur/_delete_form.html.twig') }}
+            {% endif %}
+
+        </div>
+    </div>
+
+{% endblock %}
